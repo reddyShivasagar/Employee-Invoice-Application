@@ -1,5 +1,6 @@
 package com.dakr.EmployeeInvoiceApplication.service;
 
+import java.util.Iterator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,20 +105,20 @@ public class EmployeeServiceImpliments implements EmployeeService{
 			ta=empSalary*0.7;
 			da=empSalary*0.9;
 			hra=empSalary*0.11;
-			pf = empSalary*0.15;
+			pf=empSalary*0.15;
 		}
 		else if(empSalary>=30000 && empSalary<=50000) {
 			ta=empSalary*0.12;
 			da=empSalary*0.13;
 			hra=empSalary*0.17;
-			pf = empSalary*0.22;
+			pf=empSalary*0.22;
 		
 		}
 		else if(empSalary>=50000) {
 			ta=empSalary*0.17;
 			da=empSalary*0.19;
 			hra=empSalary*0.21;
-			pf = empSalary*0.25;
+			pf=empSalary*0.25;
 		
 		}
 		
@@ -137,5 +138,13 @@ public class EmployeeServiceImpliments implements EmployeeService{
 		
 		return repository.save(employee2);
 	}
+
+	@Override
+	public List<Employee> getEmpSal(double empSal) {
+	
+		return repository.findByEmpSalary(empSal);
+	}
+
+	
 
 }

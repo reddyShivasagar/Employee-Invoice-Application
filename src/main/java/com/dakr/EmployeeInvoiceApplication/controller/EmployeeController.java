@@ -23,12 +23,14 @@ public class EmployeeController {
 	
 	@PostMapping("/Save")
 	public Employee save(@RequestBody Employee employee) {
+		
 		return serviceImpliments.saveEmp(employee);
 		
 	}
 	
 	@DeleteMapping("/Delete/{Id}")
 	public void delete(@PathVariable Integer Id) {
+		
 		serviceImpliments.deleteEmp(Id);
 		
 	}
@@ -48,6 +50,14 @@ public class EmployeeController {
 	@PutMapping("/Update/{Id}")
 	public Employee update(@RequestBody Employee employee,@PathVariable Integer Id) {
 		return serviceImpliments.updateEmp(employee, Id);
+		
+	}
+	
+
+	
+	@GetMapping("/GetSal/{empSal}")
+	public List<Employee> getEmpSal(@PathVariable double empSal) {
+		return serviceImpliments.getEmpSal(empSal);
 		
 	}
 	

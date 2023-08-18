@@ -15,4 +15,6 @@ public interface EmployeeService {
 	public List<Employee> getAllEmp();
 	
 	public Employee updateEmp(Employee employee,Integer Id);
+	
+	public List<Employee> getEmpSal(double empSal);
 }
